@@ -13,32 +13,36 @@ namespace commonmethod
     {
         // #region object
 
-        By sign_inbtn = By.XPath("//span[text()='Sign in']");
-        By email = By.Id("//input[@id='CustomerEmail']");
-
+        By sign_inbtn = By.XPath("//*[@id='shopify-section-header-men']/div/header/div/a[1]/span[1]");
+        By email = By.XPath("//input[@id='CustomerEmail']");
+        By passwrd = By.XPath("//input[@id='CustomerPassword']");
+        
         //#region construction
-
         public login(IWebDriver driver)
         {
-            this.commondriver = (WebDriver)driver;
+            commondriver = driver;
         }
-        #region login
-        public void clickLoginbutton()
-        {
-            Click(sign_inbtn);
-        }
+
+    
+ 
 
         //public void button
 
 
 
-        #endregion
+       
 
-         void inputtext(  string eemail )
+         public void ForClick()
         {
-            settext(email , eemail);
+            btn(sign_inbtn);
         }
 
+
+
+        public void fortext(string username_email)
+        {
+            Settext(email , username_email);
+        }
 
     }
 }

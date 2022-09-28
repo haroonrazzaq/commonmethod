@@ -5,73 +5,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium.DevTools.V102.DOM;
 
 namespace commonmethod
 {
-    // [TestClass]
+
     public class commmon_method
     {
 
-        public WebDriver commondriver;
-        Actions action;
+        public IWebDriver commondriver;
+        Actions actions ;
 
 
-      
 
-        #region     frequent_method
+        //Find Element 
 
-        //find element
-        public IWebElement findElement(By Locate)
+        public IWebElement FindElement(By Locate)
         {
             return commondriver.FindElement(Locate);
         }
 
-        //send text in input field
-        public void settext(By locate, string text)
-        {
-            IWebElement findEleement = findElement(locate);
-            findEleement.Clear();
-            //removetext(findelement);
 
+        //Set Text In Element
+        public void Settext(By locate,string text)
+           
+       {
+            IWebElement findedelement1 = FindElement(locate);
+            findedelement1.SendKeys(text + Keys.Tab);
 
-            findEleement.SendKeys(text + Keys.Tab);
-
-
+        
         }
 
-        //click on the element
-
-        public void Click(By locator)
-
+        public void btn(By locate)
         {
-            action = new Actions(commondriver);
-            action.Click(findElement(locator)).Build().Perform();
-        }
-
-        //remove text
-        public void removetext(IWebElement element)
-        {
-            int a = element.Text.Length;
-            while (a > 0)
-            { 
-            element.SendKeys(Keys.Backspace);
-            }
+            actions = new Actions(commondriver);
+            actions.Click(FindElement(locate)).Build().Perform();
         
         }
 
 
 
-
-
-
-
-
-
-        //[TestMethod]
-        //public void TestMethod1()
-        //{
-
-        //}
-        #endregion
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium.Edge;
 
 namespace commonmethod
 {
@@ -15,13 +16,14 @@ namespace commonmethod
         [TestMethod]
         public void loginbutton()
         {
-            IWebDriver adriver = new ChromeDriver();
+            IWebDriver adriver = new EdgeDriver();
             adriver.Manage().Window.Maximize();
             adriver.Manage().Timeouts().ImplicitWait=TimeSpan.FromSeconds(60);
             adriver.Url =" https://www.beyondeast.com/pages/women";
+
             login Ol = new login(adriver);
-            Ol.clickLoginbutton();
-            inputtext
+            Ol.ForClick();
+            Ol.fortext("ilaijasam123@gmail.com");
 
         }
 

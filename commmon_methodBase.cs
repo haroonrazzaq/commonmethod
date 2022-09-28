@@ -1,6 +1,9 @@
-﻿namespace commonmethod
+﻿/*using
+namespace commonmethod
 {
     internal class commmon_methodBase
     {
+
+
     }
-}
+} */
